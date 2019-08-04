@@ -46,6 +46,18 @@ public class CacheConfiguration {
             createCache(cm, vn.vnpt.ehealt.blockchain.domain.User.class.getName());
             createCache(cm, vn.vnpt.ehealt.blockchain.domain.Authority.class.getName());
             createCache(cm, vn.vnpt.ehealt.blockchain.domain.User.class.getName() + ".authorities");
+            createCache(cm, vn.vnpt.ehealt.blockchain.domain.Region.class.getName());
+            createCache(cm, vn.vnpt.ehealt.blockchain.domain.Country.class.getName());
+            createCache(cm, vn.vnpt.ehealt.blockchain.domain.Location.class.getName());
+            createCache(cm, vn.vnpt.ehealt.blockchain.domain.Department.class.getName());
+            createCache(cm, vn.vnpt.ehealt.blockchain.domain.Department.class.getName() + ".employees");
+            createCache(cm, vn.vnpt.ehealt.blockchain.domain.Task.class.getName());
+            createCache(cm, vn.vnpt.ehealt.blockchain.domain.Task.class.getName() + ".jobs");
+            createCache(cm, vn.vnpt.ehealt.blockchain.domain.Employee.class.getName());
+            createCache(cm, vn.vnpt.ehealt.blockchain.domain.Employee.class.getName() + ".jobs");
+            createCache(cm, vn.vnpt.ehealt.blockchain.domain.Job.class.getName());
+            createCache(cm, vn.vnpt.ehealt.blockchain.domain.Job.class.getName() + ".tasks");
+            createCache(cm, vn.vnpt.ehealt.blockchain.domain.JobHistory.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }
