@@ -1,0 +1,158 @@
+NAME_MAX_LENGTH = 255
+CODE_MAX_LENGTH = 50
+PHONE_MAX_LENGTH = 20
+NOTE_MAX_LENGTH = 4000
+
+entity AdmUserTokenLogin(adm_user_tokenlogin) {
+    id Integer required,
+    userName String maxlength(NAME_MAX_LENGTH),
+    createdDate LocalDate,
+    expirationDate LocalDate,
+    loginIP String,
+    active String,
+    heThong String,
+    tokenType String,
+    status Integer
+}
+
+
+entity BlcAPILog (blc_api_log) {
+    uuid String required,
+    status String,
+    messageStatus String,
+    methodName String,
+    soGCS String,
+    soSOGCS String,
+    requestContent String,
+    errorMessage String,
+    loadedTime LocalDate,
+    ipAddress String,
+    idBenhvien String,
+    tenBenhvien String,
+    processTime Integer,
+    responseTime Integer
+}
+
+entity BlcGiayKhamSucKhoe (blc_giay_kham_suc_khoe) {
+    uuid String required,
+    soGiayKSK String,
+    hoTen String,
+    gioiTinh String,
+    tuoi Integer,
+    soCMND String,
+    ngayCap LocalDate,
+    noiCap String,
+    noiO String,
+    idBenhVien String,
+    tenBenhVien String,
+    ngayKham String,
+    hangBangLai String,
+    ketLuan String,
+    bacSyKetLuan String,
+    pdfGiayKSK String,
+    status Integer
+}
+
+entity BlcGiayChungSinh (blc_giay_chung_sinh) {
+    uuid String required,
+    createdDate String,
+    tenMeNguoiNuoiDuong String,
+    namSinh String,
+    diaChiThuongTru String,
+    soCMNDPassport String,
+    danToc String,
+    gioSinh String,
+    ngayThangNam String,
+    noiSinh String,
+    soLanSinh String,
+    soConHienSong String,
+    soConTrongLanSinh String,
+    gioiTinh String,
+    canNang String,
+    hienTrang String,
+    nguoiDoDe String,
+    tenDuDinh String,
+    qrCodeImage String,
+    statusApp String,
+    userApprove String,
+    userCreate String,
+    addressGCS String,
+    typeGCS String,
+    so String,
+    quyenSo String,
+    emailNDK String,
+    modifiedDate String,
+    idBenhVien String,
+    tenBenhVien String,
+    idUserCreate String,
+    publicKey String,
+    codeSoft String,
+    ngayThangNamCap String,
+    noiCap String,
+    hoTenCha String,
+    pdfFile String,
+    status String  
+}
+
+entity BlcRegisterPrivateKey (blc_register_private_key) {
+	idBenhVien String required,
+    tenBenhVien String required,
+    uuidAcccount String,
+    uuidGCSDB String, 
+    idUserCreate String,
+    codeSoft String,
+    publicKey String,
+    addressKey String,
+    createdDate String,
+    modifiedDate String,
+    status Integer
+}
+
+entity DanToc (blc_dan_toc){
+	id Integer required,
+    maDanToc String,
+    tenDanToc String,
+    ghiChu String,
+    status Integer
+}
+
+entity DonViHanhChinh (blc_don_vi_hanh_chinh) {
+	id Integer required,
+    maDonViHanhChinh String required,
+    tenDonViHanhChinh String,
+    ghiChu String,
+    status Integer
+}
+
+entity BenhVien (blc_benh_vien) {
+	id Integer required,
+    maBenhVien String required,
+    tenBenhVien String,
+    ghiChu String,
+    status Integer
+}
+
+
+
+relationship OneToOne {
+	BlcGiayChungSinh  to BlcAPILog,
+    DanToc to BlcGiayChungSinh,
+    DonViHanhChinh to BlcGiayChungSinh,
+    DonViHanhChinh to BlcGiayKhamSucKhoe,
+    BenhVien  to BlcGiayChungSinh,
+    BenhVien to BlcGiayKhamSucKhoe
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	
+	BlcGiayChungSinh to BlcRegisterPrivateKey
+
+}
+
+
+
+
+paginate * with pagination
+service * with serviceClass
+filter * 
