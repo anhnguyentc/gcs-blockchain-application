@@ -46,6 +46,15 @@ public class CacheConfiguration {
             createCache(cm, vn.vnpt.ehealt.blockchain.domain.User.class.getName());
             createCache(cm, vn.vnpt.ehealt.blockchain.domain.Authority.class.getName());
             createCache(cm, vn.vnpt.ehealt.blockchain.domain.User.class.getName() + ".authorities");
+            createCache(cm, vn.vnpt.ehealt.blockchain.domain.AdmUserTokenLogin.class.getName());
+            createCache(cm, vn.vnpt.ehealt.blockchain.domain.BlcAPILog.class.getName());
+            createCache(cm, vn.vnpt.ehealt.blockchain.domain.BlcGiayKhamSucKhoe.class.getName());
+            createCache(cm, vn.vnpt.ehealt.blockchain.domain.BlcGiayChungSinh.class.getName());
+            createCache(cm, vn.vnpt.ehealt.blockchain.domain.BlcGiayChungSinh.class.getName() + ".blcRegisterPrivateKeys");
+            createCache(cm, vn.vnpt.ehealt.blockchain.domain.BlcRegisterPrivateKey.class.getName());
+            createCache(cm, vn.vnpt.ehealt.blockchain.domain.DanToc.class.getName());
+            createCache(cm, vn.vnpt.ehealt.blockchain.domain.DonViHanhChinh.class.getName());
+            createCache(cm, vn.vnpt.ehealt.blockchain.domain.BenhVien.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

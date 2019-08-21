@@ -1,0 +1,206 @@
+{
+    "name": "BlcGiayChungSinh",
+    "fields": [
+        {
+            "fieldName": "uuid",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tenMeNguoiNuoiDuong",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "namSinh",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "diaChiThuongTru",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "soCMNDPassport",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "danToc",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "gioSinh",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ngayThangNam",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "noiSinh",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "soLanSinh",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "soConHienSong",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "soConTrongLanSinh",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "gioiTinh",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "canNang",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "hienTrang",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nguoiDoDe",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tenDuDinh",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "qrCodeImage",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "statusApp",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "userApprove",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "userCreate",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "addressGCS",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "typeGCS",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "so",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "quyenSo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "emailNDK",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "modifiedDate",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "idBenhVien",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tenBenhVien",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "idUserCreate",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "publicKey",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codeSoft",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ngayThangNamCap",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "noiCap",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "hoTenCha",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pdfFile",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "blcAPILog",
+            "otherEntityRelationshipName": "blcGiayChungSinh",
+            "relationshipName": "blcAPILog",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "blcRegisterPrivateKey",
+            "otherEntityRelationshipName": "blcGiayChungSinh",
+            "relationshipName": "blcRegisterPrivateKey"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "danToc",
+            "otherEntityRelationshipName": "blcGiayChungSinh",
+            "relationshipName": "danToc",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "donViHanhChinh",
+            "otherEntityRelationshipName": "blcGiayChungSinh",
+            "relationshipName": "donViHanhChinh",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "benhVien",
+            "otherEntityRelationshipName": "blcGiayChungSinh",
+            "relationshipName": "benhVien",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20190821100938",
+    "entityTableName": "blc_giay_chung_sinh",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

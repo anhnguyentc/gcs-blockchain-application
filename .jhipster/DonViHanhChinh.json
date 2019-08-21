@@ -1,0 +1,51 @@
+{
+    "name": "DonViHanhChinh",
+    "fields": [
+        {
+            "fieldName": "maDonViHanhChinh",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tenDonViHanhChinh",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ghiChu",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "blcGiayChungSinh",
+            "otherEntityRelationshipName": "donViHanhChinh",
+            "relationshipName": "blcGiayChungSinh",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "blcGiayKhamSucKhoe",
+            "otherEntityRelationshipName": "donViHanhChinh",
+            "relationshipName": "blcGiayKhamSucKhoe",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20190821100941",
+    "entityTableName": "blc_don_vi_hanh_chinh",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

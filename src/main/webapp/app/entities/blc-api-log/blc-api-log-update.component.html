@@ -1,0 +1,104 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-blc-api-log-heading">Create or edit a Blc API Log</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_uuid">Uuid</label>
+                    <input type="text" class="form-control" name="uuid" id="field_uuid"
+                           formControlName="uuid"/>
+                    <div *ngIf="editForm.get('uuid').invalid && (editForm.get('uuid').dirty || editForm.get('uuid').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('uuid').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_status">Status</label>
+                    <input type="text" class="form-control" name="status" id="field_status"
+                           formControlName="status"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_messageStatus">Message Status</label>
+                    <input type="text" class="form-control" name="messageStatus" id="field_messageStatus"
+                           formControlName="messageStatus"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_methodName">Method Name</label>
+                    <input type="text" class="form-control" name="methodName" id="field_methodName"
+                           formControlName="methodName"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_soGCS">So GCS</label>
+                    <input type="text" class="form-control" name="soGCS" id="field_soGCS"
+                           formControlName="soGCS"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_soSOGCS">So SOGCS</label>
+                    <input type="text" class="form-control" name="soSOGCS" id="field_soSOGCS"
+                           formControlName="soSOGCS"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_requestContent">Request Content</label>
+                    <input type="text" class="form-control" name="requestContent" id="field_requestContent"
+                           formControlName="requestContent"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_errorMessage">Error Message</label>
+                    <input type="text" class="form-control" name="errorMessage" id="field_errorMessage"
+                           formControlName="errorMessage"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_loadedTime">Loaded Time</label>
+                    <div class="input-group">
+                        <input id="field_loadedTime" type="text" class="form-control" name="loadedTime" ngbDatepicker  #loadedTimeDp="ngbDatepicker" formControlName="loadedTime"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="loadedTimeDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_ipAddress">Ip Address</label>
+                    <input type="text" class="form-control" name="ipAddress" id="field_ipAddress"
+                           formControlName="ipAddress"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_idBenhvien">Id Benhvien</label>
+                    <input type="text" class="form-control" name="idBenhvien" id="field_idBenhvien"
+                           formControlName="idBenhvien"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tenBenhvien">Ten Benhvien</label>
+                    <input type="text" class="form-control" name="tenBenhvien" id="field_tenBenhvien"
+                           formControlName="tenBenhvien"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_processTime">Process Time</label>
+                    <input type="number" class="form-control" name="processTime" id="field_processTime"
+                           formControlName="processTime"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_responseTime">Response Time</label>
+                    <input type="number" class="form-control" name="responseTime" id="field_responseTime"
+                           formControlName="responseTime"/>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

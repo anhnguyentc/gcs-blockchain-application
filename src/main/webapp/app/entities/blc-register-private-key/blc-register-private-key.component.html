@@ -1,0 +1,91 @@
+<div>
+    <h2 id="page-heading">
+        <span>Blc Register Private Keys</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-blc-register-private-key" [routerLink]="['/blc-register-private-key/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create a new Blc Register Private Key
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="blcRegisterPrivateKeys?.length === 0">
+        <span>No blcRegisterPrivateKeys found</span>
+    </div>
+    <div class="table-responsive" *ngIf="blcRegisterPrivateKeys?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="idBenhVien"><span>Id Benh Vien</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tenBenhVien"><span>Ten Benh Vien</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="uuidAcccount"><span>Uuid Acccount</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="uuidGCSDB"><span>Uuid GCSDB</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="idUserCreate"><span>Id User Create</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codeSoft"><span>Code Soft</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="publicKey"><span>Public Key</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="addressKey"><span>Address Key</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="createdDate"><span>Created Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="modifiedDate"><span>Modified Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="status"><span>Status</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="blcGiayChungSinh.id"><span>Blc Giay Chung Sinh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let blcRegisterPrivateKey of blcRegisterPrivateKeys ;trackBy: trackId">
+                <td><a [routerLink]="['/blc-register-private-key', blcRegisterPrivateKey.id, 'view' ]">{{blcRegisterPrivateKey.id}}</a></td>
+                <td>{{blcRegisterPrivateKey.idBenhVien}}</td>
+                <td>{{blcRegisterPrivateKey.tenBenhVien}}</td>
+                <td>{{blcRegisterPrivateKey.uuidAcccount}}</td>
+                <td>{{blcRegisterPrivateKey.uuidGCSDB}}</td>
+                <td>{{blcRegisterPrivateKey.idUserCreate}}</td>
+                <td>{{blcRegisterPrivateKey.codeSoft}}</td>
+                <td>{{blcRegisterPrivateKey.publicKey}}</td>
+                <td>{{blcRegisterPrivateKey.addressKey}}</td>
+                <td>{{blcRegisterPrivateKey.createdDate}}</td>
+                <td>{{blcRegisterPrivateKey.modifiedDate}}</td>
+                <td>{{blcRegisterPrivateKey.status}}</td>
+                <td>
+                    <div *ngIf="blcRegisterPrivateKey.blcGiayChungSinh">
+                        <a [routerLink]="['/blc-giay-chung-sinh', blcRegisterPrivateKey.blcGiayChungSinh?.id, 'view' ]" >{{blcRegisterPrivateKey.blcGiayChungSinh?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/blc-register-private-key', blcRegisterPrivateKey.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/blc-register-private-key', blcRegisterPrivateKey.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/blc-register-private-key', { outlets: { popup: blcRegisterPrivateKey.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="blcRegisterPrivateKeys?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

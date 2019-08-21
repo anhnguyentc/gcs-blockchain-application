@@ -1,0 +1,82 @@
+{
+    "name": "BlcAPILog",
+    "fields": [
+        {
+            "fieldName": "uuid",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "messageStatus",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "methodName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "soGCS",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "soSOGCS",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "requestContent",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "errorMessage",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "loadedTime",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "ipAddress",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "idBenhvien",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tenBenhvien",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "processTime",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "responseTime",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "blcGiayChungSinh",
+            "otherEntityRelationshipName": "blcAPILog",
+            "relationshipName": "blcGiayChungSinh",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20190821100936",
+    "entityTableName": "blc_api_log",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

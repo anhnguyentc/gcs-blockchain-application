@@ -1,0 +1,40 @@
+{
+    "name": "DanToc",
+    "fields": [
+        {
+            "fieldName": "maDanToc",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tenDanToc",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ghiChu",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "blcGiayChungSinh",
+            "otherEntityRelationshipName": "danToc",
+            "relationshipName": "blcGiayChungSinh",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20190821100940",
+    "entityTableName": "blc_dan_toc",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

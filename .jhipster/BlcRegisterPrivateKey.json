@@ -1,0 +1,73 @@
+{
+    "name": "BlcRegisterPrivateKey",
+    "fields": [
+        {
+            "fieldName": "idBenhVien",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tenBenhVien",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "uuidAcccount",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "uuidGCSDB",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "idUserCreate",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codeSoft",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "publicKey",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "addressKey",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "modifiedDate",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "blcGiayChungSinh",
+            "otherEntityRelationshipName": "blcRegisterPrivateKey",
+            "relationshipName": "blcGiayChungSinh",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190821100939",
+    "entityTableName": "blc_register_private_key",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

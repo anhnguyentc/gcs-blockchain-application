@@ -1,0 +1,97 @@
+<div>
+    <h2 id="page-heading">
+        <span>Blc Giay Kham Suc Khoes</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-blc-giay-kham-suc-khoe" [routerLink]="['/blc-giay-kham-suc-khoe/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create a new Blc Giay Kham Suc Khoe
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="blcGiayKhamSucKhoes?.length === 0">
+        <span>No blcGiayKhamSucKhoes found</span>
+    </div>
+    <div class="table-responsive" *ngIf="blcGiayKhamSucKhoes?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="uuid"><span>Uuid</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="soGiayKSK"><span>So Giay KSK</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="hoTen"><span>Ho Ten</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="gioiTinh"><span>Gioi Tinh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tuoi"><span>Tuoi</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="soCMND"><span>So CMND</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="ngayCap"><span>Ngay Cap</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="noiCap"><span>Noi Cap</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="noiO"><span>Noi O</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="idBenhVien"><span>Id Benh Vien</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tenBenhVien"><span>Ten Benh Vien</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="ngayKham"><span>Ngay Kham</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="hangBangLai"><span>Hang Bang Lai</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="ketLuan"><span>Ket Luan</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="bacSyKetLuan"><span>Bac Sy Ket Luan</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="pdfGiayKSK"><span>Pdf Giay KSK</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="status"><span>Status</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let blcGiayKhamSucKhoe of blcGiayKhamSucKhoes ;trackBy: trackId">
+                <td><a [routerLink]="['/blc-giay-kham-suc-khoe', blcGiayKhamSucKhoe.id, 'view' ]">{{blcGiayKhamSucKhoe.id}}</a></td>
+                <td>{{blcGiayKhamSucKhoe.uuid}}</td>
+                <td>{{blcGiayKhamSucKhoe.soGiayKSK}}</td>
+                <td>{{blcGiayKhamSucKhoe.hoTen}}</td>
+                <td>{{blcGiayKhamSucKhoe.gioiTinh}}</td>
+                <td>{{blcGiayKhamSucKhoe.tuoi}}</td>
+                <td>{{blcGiayKhamSucKhoe.soCMND}}</td>
+                <td>{{blcGiayKhamSucKhoe.ngayCap | date:'mediumDate'}}</td>
+                <td>{{blcGiayKhamSucKhoe.noiCap}}</td>
+                <td>{{blcGiayKhamSucKhoe.noiO}}</td>
+                <td>{{blcGiayKhamSucKhoe.idBenhVien}}</td>
+                <td>{{blcGiayKhamSucKhoe.tenBenhVien}}</td>
+                <td>{{blcGiayKhamSucKhoe.ngayKham}}</td>
+                <td>{{blcGiayKhamSucKhoe.hangBangLai}}</td>
+                <td>{{blcGiayKhamSucKhoe.ketLuan}}</td>
+                <td>{{blcGiayKhamSucKhoe.bacSyKetLuan}}</td>
+                <td>{{blcGiayKhamSucKhoe.pdfGiayKSK}}</td>
+                <td>{{blcGiayKhamSucKhoe.status}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/blc-giay-kham-suc-khoe', blcGiayKhamSucKhoe.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/blc-giay-kham-suc-khoe', blcGiayKhamSucKhoe.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/blc-giay-kham-suc-khoe', { outlets: { popup: blcGiayKhamSucKhoe.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="blcGiayKhamSucKhoes?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

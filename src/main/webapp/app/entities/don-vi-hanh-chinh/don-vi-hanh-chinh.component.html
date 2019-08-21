@@ -1,0 +1,83 @@
+<div>
+    <h2 id="page-heading">
+        <span>Don Vi Hanh Chinhs</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-don-vi-hanh-chinh" [routerLink]="['/don-vi-hanh-chinh/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create a new Don Vi Hanh Chinh
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="donViHanhChinhs?.length === 0">
+        <span>No donViHanhChinhs found</span>
+    </div>
+    <div class="table-responsive" *ngIf="donViHanhChinhs?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="maDonViHanhChinh"><span>Ma Don Vi Hanh Chinh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tenDonViHanhChinh"><span>Ten Don Vi Hanh Chinh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="ghiChu"><span>Ghi Chu</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="status"><span>Status</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="blcGiayChungSinh.id"><span>Blc Giay Chung Sinh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="blcGiayKhamSucKhoe.id"><span>Blc Giay Kham Suc Khoe</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let donViHanhChinh of donViHanhChinhs ;trackBy: trackId">
+                <td><a [routerLink]="['/don-vi-hanh-chinh', donViHanhChinh.id, 'view' ]">{{donViHanhChinh.id}}</a></td>
+                <td>{{donViHanhChinh.maDonViHanhChinh}}</td>
+                <td>{{donViHanhChinh.tenDonViHanhChinh}}</td>
+                <td>{{donViHanhChinh.ghiChu}}</td>
+                <td>{{donViHanhChinh.status}}</td>
+                <td>
+                    <div *ngIf="donViHanhChinh.blcGiayChungSinh">
+                        <a [routerLink]="['/blc-giay-chung-sinh', donViHanhChinh.blcGiayChungSinh?.id, 'view' ]" >{{donViHanhChinh.blcGiayChungSinh?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="donViHanhChinh.blcGiayKhamSucKhoe">
+                        <a [routerLink]="['/blc-giay-kham-suc-khoe', donViHanhChinh.blcGiayKhamSucKhoe?.id, 'view' ]" >{{donViHanhChinh.blcGiayKhamSucKhoe?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/don-vi-hanh-chinh', donViHanhChinh.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/don-vi-hanh-chinh', donViHanhChinh.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/don-vi-hanh-chinh', { outlets: { popup: donViHanhChinh.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="donViHanhChinhs?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

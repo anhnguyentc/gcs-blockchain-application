@@ -1,0 +1,101 @@
+{
+    "name": "BlcGiayKhamSucKhoe",
+    "fields": [
+        {
+            "fieldName": "uuid",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "soGiayKSK",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "hoTen",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "gioiTinh",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tuoi",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "soCMND",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ngayCap",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "noiCap",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "noiO",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "idBenhVien",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tenBenhVien",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ngayKham",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "hangBangLai",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ketLuan",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "bacSyKetLuan",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pdfGiayKSK",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "donViHanhChinh",
+            "otherEntityRelationshipName": "blcGiayKhamSucKhoe",
+            "relationshipName": "donViHanhChinh",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "benhVien",
+            "otherEntityRelationshipName": "blcGiayKhamSucKhoe",
+            "relationshipName": "benhVien",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20190821100937",
+    "entityTableName": "blc_giay_kham_suc_khoe",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
