@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-don-vi-hanh-chinh-heading">Create or edit a Don Vi Hanh Chinh</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_maDonViHanhChinh">Ma Don Vi Hanh Chinh</label>
+                    <input type="text" class="form-control" name="maDonViHanhChinh" id="field_maDonViHanhChinh"
+                           formControlName="maDonViHanhChinh"/>
+                    <div *ngIf="editForm.get('maDonViHanhChinh').invalid && (editForm.get('maDonViHanhChinh').dirty || editForm.get('maDonViHanhChinh').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('maDonViHanhChinh').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tenDonViHanhChinh">Ten Don Vi Hanh Chinh</label>
+                    <input type="text" class="form-control" name="tenDonViHanhChinh" id="field_tenDonViHanhChinh"
+                           formControlName="tenDonViHanhChinh"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_ghiChu">Ghi Chu</label>
+                    <input type="text" class="form-control" name="ghiChu" id="field_ghiChu"
+                           formControlName="ghiChu"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_status">Status</label>
+                    <input type="number" class="form-control" name="status" id="field_status"
+                           formControlName="status"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_blcGiayChungSinh">Blc Giay Chung Sinh</label>
+                    <select class="form-control" id="field_blcGiayChungSinh" name="blcGiayChungSinh" formControlName="blcGiayChungSinh">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="blcGiayChungSinhOption.id === editForm.get('blcGiayChungSinh').value?.id ? editForm.get('blcGiayChungSinh').value : blcGiayChungSinhOption" *ngFor="let blcGiayChungSinhOption of blcgiaychungsinhs; trackBy: trackBlcGiayChungSinhById">{{blcGiayChungSinhOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_blcGiayKhamSucKhoe">Blc Giay Kham Suc Khoe</label>
+                    <select class="form-control" id="field_blcGiayKhamSucKhoe" name="blcGiayKhamSucKhoe" formControlName="blcGiayKhamSucKhoe">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="blcGiayKhamSucKhoeOption.id === editForm.get('blcGiayKhamSucKhoe').value?.id ? editForm.get('blcGiayKhamSucKhoe').value : blcGiayKhamSucKhoeOption" *ngFor="let blcGiayKhamSucKhoeOption of blcgiaykhamsuckhoes; trackBy: trackBlcGiayKhamSucKhoeById">{{blcGiayKhamSucKhoeOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

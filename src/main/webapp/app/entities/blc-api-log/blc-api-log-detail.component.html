@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="blcAPILog">
+            <h2><span>Blc API Log</span> {{blcAPILog.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Uuid</span></dt>
+                <dd>
+                    <span>{{blcAPILog.uuid}}</span>
+                </dd>
+                <dt><span>Status</span></dt>
+                <dd>
+                    <span>{{blcAPILog.status}}</span>
+                </dd>
+                <dt><span>Message Status</span></dt>
+                <dd>
+                    <span>{{blcAPILog.messageStatus}}</span>
+                </dd>
+                <dt><span>Method Name</span></dt>
+                <dd>
+                    <span>{{blcAPILog.methodName}}</span>
+                </dd>
+                <dt><span>So GCS</span></dt>
+                <dd>
+                    <span>{{blcAPILog.soGCS}}</span>
+                </dd>
+                <dt><span>So SOGCS</span></dt>
+                <dd>
+                    <span>{{blcAPILog.soSOGCS}}</span>
+                </dd>
+                <dt><span>Request Content</span></dt>
+                <dd>
+                    <span>{{blcAPILog.requestContent}}</span>
+                </dd>
+                <dt><span>Error Message</span></dt>
+                <dd>
+                    <span>{{blcAPILog.errorMessage}}</span>
+                </dd>
+                <dt><span>Loaded Time</span></dt>
+                <dd>
+                    <span>{{blcAPILog.loadedTime}}</span>
+                </dd>
+                <dt><span>Ip Address</span></dt>
+                <dd>
+                    <span>{{blcAPILog.ipAddress}}</span>
+                </dd>
+                <dt><span>Id Benhvien</span></dt>
+                <dd>
+                    <span>{{blcAPILog.idBenhvien}}</span>
+                </dd>
+                <dt><span>Ten Benhvien</span></dt>
+                <dd>
+                    <span>{{blcAPILog.tenBenhvien}}</span>
+                </dd>
+                <dt><span>Process Time</span></dt>
+                <dd>
+                    <span>{{blcAPILog.processTime}}</span>
+                </dd>
+                <dt><span>Response Time</span></dt>
+                <dd>
+                    <span>{{blcAPILog.responseTime}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/blc-api-log', blcAPILog.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

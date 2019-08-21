@@ -1,0 +1,227 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-blc-giay-chung-sinh-heading">Create or edit a Blc Giay Chung Sinh</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_uuid">Uuid</label>
+                    <input type="text" class="form-control" name="uuid" id="field_uuid"
+                           formControlName="uuid"/>
+                    <div *ngIf="editForm.get('uuid').invalid && (editForm.get('uuid').dirty || editForm.get('uuid').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('uuid').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_createdDate">Created Date</label>
+                    <input type="text" class="form-control" name="createdDate" id="field_createdDate"
+                           formControlName="createdDate"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tenMeNguoiNuoiDuong">Ten Me Nguoi Nuoi Duong</label>
+                    <input type="text" class="form-control" name="tenMeNguoiNuoiDuong" id="field_tenMeNguoiNuoiDuong"
+                           formControlName="tenMeNguoiNuoiDuong"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_namSinh">Nam Sinh</label>
+                    <input type="text" class="form-control" name="namSinh" id="field_namSinh"
+                           formControlName="namSinh"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_diaChiThuongTru">Dia Chi Thuong Tru</label>
+                    <input type="text" class="form-control" name="diaChiThuongTru" id="field_diaChiThuongTru"
+                           formControlName="diaChiThuongTru"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_soCMNDPassport">So CMND Passport</label>
+                    <input type="text" class="form-control" name="soCMNDPassport" id="field_soCMNDPassport"
+                           formControlName="soCMNDPassport"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_danToc">Dan Toc</label>
+                    <input type="text" class="form-control" name="danToc" id="field_danToc"
+                           formControlName="danToc"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_gioSinh">Gio Sinh</label>
+                    <input type="text" class="form-control" name="gioSinh" id="field_gioSinh"
+                           formControlName="gioSinh"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_ngayThangNam">Ngay Thang Nam</label>
+                    <input type="text" class="form-control" name="ngayThangNam" id="field_ngayThangNam"
+                           formControlName="ngayThangNam"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_noiSinh">Noi Sinh</label>
+                    <input type="text" class="form-control" name="noiSinh" id="field_noiSinh"
+                           formControlName="noiSinh"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_soLanSinh">So Lan Sinh</label>
+                    <input type="text" class="form-control" name="soLanSinh" id="field_soLanSinh"
+                           formControlName="soLanSinh"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_soConHienSong">So Con Hien Song</label>
+                    <input type="text" class="form-control" name="soConHienSong" id="field_soConHienSong"
+                           formControlName="soConHienSong"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_soConTrongLanSinh">So Con Trong Lan Sinh</label>
+                    <input type="text" class="form-control" name="soConTrongLanSinh" id="field_soConTrongLanSinh"
+                           formControlName="soConTrongLanSinh"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_gioiTinh">Gioi Tinh</label>
+                    <input type="text" class="form-control" name="gioiTinh" id="field_gioiTinh"
+                           formControlName="gioiTinh"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_canNang">Can Nang</label>
+                    <input type="text" class="form-control" name="canNang" id="field_canNang"
+                           formControlName="canNang"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_hienTrang">Hien Trang</label>
+                    <input type="text" class="form-control" name="hienTrang" id="field_hienTrang"
+                           formControlName="hienTrang"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_nguoiDoDe">Nguoi Do De</label>
+                    <input type="text" class="form-control" name="nguoiDoDe" id="field_nguoiDoDe"
+                           formControlName="nguoiDoDe"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tenDuDinh">Ten Du Dinh</label>
+                    <input type="text" class="form-control" name="tenDuDinh" id="field_tenDuDinh"
+                           formControlName="tenDuDinh"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_qrCodeImage">Qr Code Image</label>
+                    <input type="text" class="form-control" name="qrCodeImage" id="field_qrCodeImage"
+                           formControlName="qrCodeImage"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_statusApp">Status App</label>
+                    <input type="text" class="form-control" name="statusApp" id="field_statusApp"
+                           formControlName="statusApp"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_userApprove">User Approve</label>
+                    <input type="text" class="form-control" name="userApprove" id="field_userApprove"
+                           formControlName="userApprove"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_userCreate">User Create</label>
+                    <input type="text" class="form-control" name="userCreate" id="field_userCreate"
+                           formControlName="userCreate"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_addressGCS">Address GCS</label>
+                    <input type="text" class="form-control" name="addressGCS" id="field_addressGCS"
+                           formControlName="addressGCS"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_typeGCS">Type GCS</label>
+                    <input type="text" class="form-control" name="typeGCS" id="field_typeGCS"
+                           formControlName="typeGCS"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_so">So</label>
+                    <input type="text" class="form-control" name="so" id="field_so"
+                           formControlName="so"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_quyenSo">Quyen So</label>
+                    <input type="text" class="form-control" name="quyenSo" id="field_quyenSo"
+                           formControlName="quyenSo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_emailNDK">Email NDK</label>
+                    <input type="text" class="form-control" name="emailNDK" id="field_emailNDK"
+                           formControlName="emailNDK"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_modifiedDate">Modified Date</label>
+                    <input type="text" class="form-control" name="modifiedDate" id="field_modifiedDate"
+                           formControlName="modifiedDate"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_idBenhVien">Id Benh Vien</label>
+                    <input type="text" class="form-control" name="idBenhVien" id="field_idBenhVien"
+                           formControlName="idBenhVien"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tenBenhVien">Ten Benh Vien</label>
+                    <input type="text" class="form-control" name="tenBenhVien" id="field_tenBenhVien"
+                           formControlName="tenBenhVien"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_idUserCreate">Id User Create</label>
+                    <input type="text" class="form-control" name="idUserCreate" id="field_idUserCreate"
+                           formControlName="idUserCreate"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_publicKey">Public Key</label>
+                    <input type="text" class="form-control" name="publicKey" id="field_publicKey"
+                           formControlName="publicKey"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_codeSoft">Code Soft</label>
+                    <input type="text" class="form-control" name="codeSoft" id="field_codeSoft"
+                           formControlName="codeSoft"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_ngayThangNamCap">Ngay Thang Nam Cap</label>
+                    <input type="text" class="form-control" name="ngayThangNamCap" id="field_ngayThangNamCap"
+                           formControlName="ngayThangNamCap"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_noiCap">Noi Cap</label>
+                    <input type="text" class="form-control" name="noiCap" id="field_noiCap"
+                           formControlName="noiCap"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_hoTenCha">Ho Ten Cha</label>
+                    <input type="text" class="form-control" name="hoTenCha" id="field_hoTenCha"
+                           formControlName="hoTenCha"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_pdfFile">Pdf File</label>
+                    <input type="text" class="form-control" name="pdfFile" id="field_pdfFile"
+                           formControlName="pdfFile"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_status">Status</label>
+                    <input type="text" class="form-control" name="status" id="field_status"
+                           formControlName="status"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_blcAPILog">Blc API Log</label>
+                    <select class="form-control" id="field_blcAPILog" name="blcAPILog" formControlName="blcAPILog">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="blcAPILogOption.id === editForm.get('blcAPILog').value?.id ? editForm.get('blcAPILog').value : blcAPILogOption" *ngFor="let blcAPILogOption of blcapilogs; trackBy: trackBlcAPILogById">{{blcAPILogOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

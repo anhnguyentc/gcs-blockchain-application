@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="admUserTokenLogin">
+            <h2><span>Adm User Token Login</span> {{admUserTokenLogin.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>User Name</span></dt>
+                <dd>
+                    <span>{{admUserTokenLogin.userName}}</span>
+                </dd>
+                <dt><span>Created Date</span></dt>
+                <dd>
+                    <span>{{admUserTokenLogin.createdDate}}</span>
+                </dd>
+                <dt><span>Expiration Date</span></dt>
+                <dd>
+                    <span>{{admUserTokenLogin.expirationDate}}</span>
+                </dd>
+                <dt><span>Login IP</span></dt>
+                <dd>
+                    <span>{{admUserTokenLogin.loginIP}}</span>
+                </dd>
+                <dt><span>Active</span></dt>
+                <dd>
+                    <span>{{admUserTokenLogin.active}}</span>
+                </dd>
+                <dt><span>He Thong</span></dt>
+                <dd>
+                    <span>{{admUserTokenLogin.heThong}}</span>
+                </dd>
+                <dt><span>Token Type</span></dt>
+                <dd>
+                    <span>{{admUserTokenLogin.tokenType}}</span>
+                </dd>
+                <dt><span>Status</span></dt>
+                <dd>
+                    <span>{{admUserTokenLogin.status}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/adm-user-token-login', admUserTokenLogin.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

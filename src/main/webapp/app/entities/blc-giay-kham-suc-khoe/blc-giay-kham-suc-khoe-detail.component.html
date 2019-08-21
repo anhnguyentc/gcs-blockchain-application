@@ -1,0 +1,91 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="blcGiayKhamSucKhoe">
+            <h2><span>Blc Giay Kham Suc Khoe</span> {{blcGiayKhamSucKhoe.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Uuid</span></dt>
+                <dd>
+                    <span>{{blcGiayKhamSucKhoe.uuid}}</span>
+                </dd>
+                <dt><span>So Giay KSK</span></dt>
+                <dd>
+                    <span>{{blcGiayKhamSucKhoe.soGiayKSK}}</span>
+                </dd>
+                <dt><span>Ho Ten</span></dt>
+                <dd>
+                    <span>{{blcGiayKhamSucKhoe.hoTen}}</span>
+                </dd>
+                <dt><span>Gioi Tinh</span></dt>
+                <dd>
+                    <span>{{blcGiayKhamSucKhoe.gioiTinh}}</span>
+                </dd>
+                <dt><span>Tuoi</span></dt>
+                <dd>
+                    <span>{{blcGiayKhamSucKhoe.tuoi}}</span>
+                </dd>
+                <dt><span>So CMND</span></dt>
+                <dd>
+                    <span>{{blcGiayKhamSucKhoe.soCMND}}</span>
+                </dd>
+                <dt><span>Ngay Cap</span></dt>
+                <dd>
+                    <span>{{blcGiayKhamSucKhoe.ngayCap}}</span>
+                </dd>
+                <dt><span>Noi Cap</span></dt>
+                <dd>
+                    <span>{{blcGiayKhamSucKhoe.noiCap}}</span>
+                </dd>
+                <dt><span>Noi O</span></dt>
+                <dd>
+                    <span>{{blcGiayKhamSucKhoe.noiO}}</span>
+                </dd>
+                <dt><span>Id Benh Vien</span></dt>
+                <dd>
+                    <span>{{blcGiayKhamSucKhoe.idBenhVien}}</span>
+                </dd>
+                <dt><span>Ten Benh Vien</span></dt>
+                <dd>
+                    <span>{{blcGiayKhamSucKhoe.tenBenhVien}}</span>
+                </dd>
+                <dt><span>Ngay Kham</span></dt>
+                <dd>
+                    <span>{{blcGiayKhamSucKhoe.ngayKham}}</span>
+                </dd>
+                <dt><span>Hang Bang Lai</span></dt>
+                <dd>
+                    <span>{{blcGiayKhamSucKhoe.hangBangLai}}</span>
+                </dd>
+                <dt><span>Ket Luan</span></dt>
+                <dd>
+                    <span>{{blcGiayKhamSucKhoe.ketLuan}}</span>
+                </dd>
+                <dt><span>Bac Sy Ket Luan</span></dt>
+                <dd>
+                    <span>{{blcGiayKhamSucKhoe.bacSyKetLuan}}</span>
+                </dd>
+                <dt><span>Pdf Giay KSK</span></dt>
+                <dd>
+                    <span>{{blcGiayKhamSucKhoe.pdfGiayKSK}}</span>
+                </dd>
+                <dt><span>Status</span></dt>
+                <dd>
+                    <span>{{blcGiayKhamSucKhoe.status}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/blc-giay-kham-suc-khoe', blcGiayKhamSucKhoe.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

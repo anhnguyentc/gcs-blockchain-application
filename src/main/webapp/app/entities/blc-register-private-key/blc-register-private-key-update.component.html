@@ -1,0 +1,98 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-blc-register-private-key-heading">Create or edit a Blc Register Private Key</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_idBenhVien">Id Benh Vien</label>
+                    <input type="text" class="form-control" name="idBenhVien" id="field_idBenhVien"
+                           formControlName="idBenhVien"/>
+                    <div *ngIf="editForm.get('idBenhVien').invalid && (editForm.get('idBenhVien').dirty || editForm.get('idBenhVien').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idBenhVien').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tenBenhVien">Ten Benh Vien</label>
+                    <input type="text" class="form-control" name="tenBenhVien" id="field_tenBenhVien"
+                           formControlName="tenBenhVien"/>
+                    <div *ngIf="editForm.get('tenBenhVien').invalid && (editForm.get('tenBenhVien').dirty || editForm.get('tenBenhVien').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tenBenhVien').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_uuidAcccount">Uuid Acccount</label>
+                    <input type="text" class="form-control" name="uuidAcccount" id="field_uuidAcccount"
+                           formControlName="uuidAcccount"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_uuidGCSDB">Uuid GCSDB</label>
+                    <input type="text" class="form-control" name="uuidGCSDB" id="field_uuidGCSDB"
+                           formControlName="uuidGCSDB"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_idUserCreate">Id User Create</label>
+                    <input type="text" class="form-control" name="idUserCreate" id="field_idUserCreate"
+                           formControlName="idUserCreate"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_codeSoft">Code Soft</label>
+                    <input type="text" class="form-control" name="codeSoft" id="field_codeSoft"
+                           formControlName="codeSoft"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_publicKey">Public Key</label>
+                    <input type="text" class="form-control" name="publicKey" id="field_publicKey"
+                           formControlName="publicKey"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_addressKey">Address Key</label>
+                    <input type="text" class="form-control" name="addressKey" id="field_addressKey"
+                           formControlName="addressKey"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_createdDate">Created Date</label>
+                    <input type="text" class="form-control" name="createdDate" id="field_createdDate"
+                           formControlName="createdDate"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_modifiedDate">Modified Date</label>
+                    <input type="text" class="form-control" name="modifiedDate" id="field_modifiedDate"
+                           formControlName="modifiedDate"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_status">Status</label>
+                    <input type="number" class="form-control" name="status" id="field_status"
+                           formControlName="status"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_blcGiayChungSinh">Blc Giay Chung Sinh</label>
+                    <select class="form-control" id="field_blcGiayChungSinh" name="blcGiayChungSinh" formControlName="blcGiayChungSinh">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="blcGiayChungSinhOption.id === editForm.get('blcGiayChungSinh').value?.id ? editForm.get('blcGiayChungSinh').value : blcGiayChungSinhOption" *ngFor="let blcGiayChungSinhOption of blcgiaychungsinhs; trackBy: trackBlcGiayChungSinhById">{{blcGiayChungSinhOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

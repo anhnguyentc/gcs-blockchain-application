@@ -1,0 +1,145 @@
+<div>
+    <h2 id="page-heading">
+        <span>Blc Giay Chung Sinhs</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-blc-giay-chung-sinh" [routerLink]="['/blc-giay-chung-sinh/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create a new Blc Giay Chung Sinh
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="blcGiayChungSinhs?.length === 0">
+        <span>No blcGiayChungSinhs found</span>
+    </div>
+    <div class="table-responsive" *ngIf="blcGiayChungSinhs?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="uuid"><span>Uuid</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="createdDate"><span>Created Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tenMeNguoiNuoiDuong"><span>Ten Me Nguoi Nuoi Duong</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="namSinh"><span>Nam Sinh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="diaChiThuongTru"><span>Dia Chi Thuong Tru</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="soCMNDPassport"><span>So CMND Passport</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="danToc"><span>Dan Toc</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="gioSinh"><span>Gio Sinh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="ngayThangNam"><span>Ngay Thang Nam</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="noiSinh"><span>Noi Sinh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="soLanSinh"><span>So Lan Sinh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="soConHienSong"><span>So Con Hien Song</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="soConTrongLanSinh"><span>So Con Trong Lan Sinh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="gioiTinh"><span>Gioi Tinh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="canNang"><span>Can Nang</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="hienTrang"><span>Hien Trang</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nguoiDoDe"><span>Nguoi Do De</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tenDuDinh"><span>Ten Du Dinh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="qrCodeImage"><span>Qr Code Image</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="statusApp"><span>Status App</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="userApprove"><span>User Approve</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="userCreate"><span>User Create</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="addressGCS"><span>Address GCS</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="typeGCS"><span>Type GCS</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="so"><span>So</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="quyenSo"><span>Quyen So</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="emailNDK"><span>Email NDK</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="modifiedDate"><span>Modified Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="idBenhVien"><span>Id Benh Vien</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tenBenhVien"><span>Ten Benh Vien</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="idUserCreate"><span>Id User Create</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="publicKey"><span>Public Key</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codeSoft"><span>Code Soft</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="ngayThangNamCap"><span>Ngay Thang Nam Cap</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="noiCap"><span>Noi Cap</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="hoTenCha"><span>Ho Ten Cha</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="pdfFile"><span>Pdf File</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="status"><span>Status</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="blcAPILog.id"><span>Blc API Log</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let blcGiayChungSinh of blcGiayChungSinhs ;trackBy: trackId">
+                <td><a [routerLink]="['/blc-giay-chung-sinh', blcGiayChungSinh.id, 'view' ]">{{blcGiayChungSinh.id}}</a></td>
+                <td>{{blcGiayChungSinh.uuid}}</td>
+                <td>{{blcGiayChungSinh.createdDate}}</td>
+                <td>{{blcGiayChungSinh.tenMeNguoiNuoiDuong}}</td>
+                <td>{{blcGiayChungSinh.namSinh}}</td>
+                <td>{{blcGiayChungSinh.diaChiThuongTru}}</td>
+                <td>{{blcGiayChungSinh.soCMNDPassport}}</td>
+                <td>{{blcGiayChungSinh.danToc}}</td>
+                <td>{{blcGiayChungSinh.gioSinh}}</td>
+                <td>{{blcGiayChungSinh.ngayThangNam}}</td>
+                <td>{{blcGiayChungSinh.noiSinh}}</td>
+                <td>{{blcGiayChungSinh.soLanSinh}}</td>
+                <td>{{blcGiayChungSinh.soConHienSong}}</td>
+                <td>{{blcGiayChungSinh.soConTrongLanSinh}}</td>
+                <td>{{blcGiayChungSinh.gioiTinh}}</td>
+                <td>{{blcGiayChungSinh.canNang}}</td>
+                <td>{{blcGiayChungSinh.hienTrang}}</td>
+                <td>{{blcGiayChungSinh.nguoiDoDe}}</td>
+                <td>{{blcGiayChungSinh.tenDuDinh}}</td>
+                <td>{{blcGiayChungSinh.qrCodeImage}}</td>
+                <td>{{blcGiayChungSinh.statusApp}}</td>
+                <td>{{blcGiayChungSinh.userApprove}}</td>
+                <td>{{blcGiayChungSinh.userCreate}}</td>
+                <td>{{blcGiayChungSinh.addressGCS}}</td>
+                <td>{{blcGiayChungSinh.typeGCS}}</td>
+                <td>{{blcGiayChungSinh.so}}</td>
+                <td>{{blcGiayChungSinh.quyenSo}}</td>
+                <td>{{blcGiayChungSinh.emailNDK}}</td>
+                <td>{{blcGiayChungSinh.modifiedDate}}</td>
+                <td>{{blcGiayChungSinh.idBenhVien}}</td>
+                <td>{{blcGiayChungSinh.tenBenhVien}}</td>
+                <td>{{blcGiayChungSinh.idUserCreate}}</td>
+                <td>{{blcGiayChungSinh.publicKey}}</td>
+                <td>{{blcGiayChungSinh.codeSoft}}</td>
+                <td>{{blcGiayChungSinh.ngayThangNamCap}}</td>
+                <td>{{blcGiayChungSinh.noiCap}}</td>
+                <td>{{blcGiayChungSinh.hoTenCha}}</td>
+                <td>{{blcGiayChungSinh.pdfFile}}</td>
+                <td>{{blcGiayChungSinh.status}}</td>
+                <td>
+                    <div *ngIf="blcGiayChungSinh.blcAPILog">
+                        <a [routerLink]="['/blc-api-log', blcGiayChungSinh.blcAPILog?.id, 'view' ]" >{{blcGiayChungSinh.blcAPILog?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/blc-giay-chung-sinh', blcGiayChungSinh.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/blc-giay-chung-sinh', blcGiayChungSinh.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/blc-giay-chung-sinh', { outlets: { popup: blcGiayChungSinh.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="blcGiayChungSinhs?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

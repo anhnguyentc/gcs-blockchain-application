@@ -1,0 +1,119 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-blc-giay-kham-suc-khoe-heading">Create or edit a Blc Giay Kham Suc Khoe</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_uuid">Uuid</label>
+                    <input type="text" class="form-control" name="uuid" id="field_uuid"
+                           formControlName="uuid"/>
+                    <div *ngIf="editForm.get('uuid').invalid && (editForm.get('uuid').dirty || editForm.get('uuid').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('uuid').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_soGiayKSK">So Giay KSK</label>
+                    <input type="text" class="form-control" name="soGiayKSK" id="field_soGiayKSK"
+                           formControlName="soGiayKSK"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_hoTen">Ho Ten</label>
+                    <input type="text" class="form-control" name="hoTen" id="field_hoTen"
+                           formControlName="hoTen"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_gioiTinh">Gioi Tinh</label>
+                    <input type="text" class="form-control" name="gioiTinh" id="field_gioiTinh"
+                           formControlName="gioiTinh"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tuoi">Tuoi</label>
+                    <input type="number" class="form-control" name="tuoi" id="field_tuoi"
+                           formControlName="tuoi"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_soCMND">So CMND</label>
+                    <input type="text" class="form-control" name="soCMND" id="field_soCMND"
+                           formControlName="soCMND"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_ngayCap">Ngay Cap</label>
+                    <div class="input-group">
+                        <input id="field_ngayCap" type="text" class="form-control" name="ngayCap" ngbDatepicker  #ngayCapDp="ngbDatepicker" formControlName="ngayCap"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="ngayCapDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_noiCap">Noi Cap</label>
+                    <input type="text" class="form-control" name="noiCap" id="field_noiCap"
+                           formControlName="noiCap"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_noiO">Noi O</label>
+                    <input type="text" class="form-control" name="noiO" id="field_noiO"
+                           formControlName="noiO"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_idBenhVien">Id Benh Vien</label>
+                    <input type="text" class="form-control" name="idBenhVien" id="field_idBenhVien"
+                           formControlName="idBenhVien"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tenBenhVien">Ten Benh Vien</label>
+                    <input type="text" class="form-control" name="tenBenhVien" id="field_tenBenhVien"
+                           formControlName="tenBenhVien"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_ngayKham">Ngay Kham</label>
+                    <input type="text" class="form-control" name="ngayKham" id="field_ngayKham"
+                           formControlName="ngayKham"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_hangBangLai">Hang Bang Lai</label>
+                    <input type="text" class="form-control" name="hangBangLai" id="field_hangBangLai"
+                           formControlName="hangBangLai"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_ketLuan">Ket Luan</label>
+                    <input type="text" class="form-control" name="ketLuan" id="field_ketLuan"
+                           formControlName="ketLuan"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_bacSyKetLuan">Bac Sy Ket Luan</label>
+                    <input type="text" class="form-control" name="bacSyKetLuan" id="field_bacSyKetLuan"
+                           formControlName="bacSyKetLuan"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_pdfGiayKSK">Pdf Giay KSK</label>
+                    <input type="text" class="form-control" name="pdfGiayKSK" id="field_pdfGiayKSK"
+                           formControlName="pdfGiayKSK"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_status">Status</label>
+                    <input type="number" class="form-control" name="status" id="field_status"
+                           formControlName="status"/>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
